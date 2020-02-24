@@ -1,0 +1,8 @@
+<h1>Tacos Menu!</h1>
+<% @tacos.each do |taco|%>
+<!-- a herf="tacos/<%=taco.id%>"> </a> -->
+<!--   <%= link_to taco.meat, "/tacos/#{taco.id}" %> -->
+<%= link_to taco.meat, taco_path(taco.id) %> 
+
+    <li>Meat:<%=taco.meat%>, Zest:<%=taco.zest%>, Spice:<%=taco.zest%></li>
+<%end%>
