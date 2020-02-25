@@ -1,2 +1,0 @@
-class TrucsController < ApplicationController
-end

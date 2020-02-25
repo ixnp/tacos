@@ -1,0 +1,6 @@
+<h1>Truck Menu!</h1>
+<% @trucks.each do |truck|%>
+<%= link_to truck.name, truck_path(truck.id) %><br /> 
+
+
+<%end%>

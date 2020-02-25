@@ -1,0 +1,6 @@
+<h1>name: <%=@truck.name%></h1>
+<h1>location: <%=@truck.location%></h1>
+<%= @truck.tacos.each do |taco|%>
+    <li>Meat:<%taco.meat%>,Zest: <%taco.zest%>, Spice: <%taco.zest%></li>
+<%end%>
+<%= link_to "edit", edit_truck_path(@truck.id) %> 

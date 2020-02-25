@@ -6,12 +6,27 @@ class TacosController < ApplicationController
     def show
         @taco = Taco.find(params[:id])
     end 
+
+    def new
+        @taco = Taco.new
+        @trucks = Truck.all
+        
+    end 
     
     def create 
+        @taco = Taco.create(taco_params)
+        if @taco.valid?
+            redirect_to taco_path(@taco)
+          else
+            flash[:notice] = @taco.errors.full_messages
+            redirect_to new_taco_path
+        end
     end 
 
     def edit
         @taco = Taco.find(params[:id])
+        @trucks = Truck.all
+
     end 
 
     def update
@@ -23,7 +38,7 @@ class TacosController < ApplicationController
     private 
 
     def taco_params
-    
-        params.permit(:meat, :zest, :spicy)
+         
+        params.require(:taco).permit(:meat, :zest, :spicy, :truck_id)
     end 
 end
